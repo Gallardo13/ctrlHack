@@ -1,6 +1,5 @@
 ﻿using GeoPrototypeWebApi.Controllers;
 using GeoPrototypeWebApi.Facades;
-using System;
 
 namespace AppTests
 {
