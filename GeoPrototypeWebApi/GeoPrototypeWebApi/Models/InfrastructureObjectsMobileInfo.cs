@@ -11,9 +11,9 @@ namespace GeoPrototypeWebApi.Models
         public string Description { get; set; }
 
         // широта местоположения объекта
-        public double Latitude { get; set; }
+        public decimal Latitude { get; set; }
 
         // долгота месторасположения объекта
-        public double Longitude { get; set; }
+        public decimal Longitude { get; set; }
     }
 }

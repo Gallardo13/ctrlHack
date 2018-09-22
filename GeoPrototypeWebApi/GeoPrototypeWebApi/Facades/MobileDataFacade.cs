@@ -40,9 +40,9 @@ namespace GeoPrototypeWebApi.Facades
                     retVal.Add(new InfrastructureObjectsMobileInfo
                     {
                         Id = (long)dataReader["id"],
-                        Description = (string)dataReader["description"] ?? "",
-                        Latitude = (double)dataReader["latitude"],
-                        Longitude = (double)dataReader["longitude"]
+                        Description = (string)(dataReader["description"] == DBNull.Value ? "" : dataReader["description"]),
+                        Latitude = (decimal)dataReader["latitude"],
+                        Longitude = (decimal)dataReader["longitude"]
                     });
             }
 
