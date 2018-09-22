@@ -12,6 +12,10 @@ namespace GeoPrototypeWebApi.Facades
         string GetObjectsByYear { get; }
 
         string GetObjectById { get; }
+
+        string InsertReview { get; }
+
+        string InsertReviewImage { get; }
     }
 
     public class SqlStrings : ISqlStrings
@@ -29,5 +33,9 @@ namespace GeoPrototypeWebApi.Facades
             @"SELECT*
             FROM contracts
             WHERE(`id` = @id)";
+
+        public string InsertReview => throw new NotImplementedException();
+
+        public string InsertReviewImage => throw new NotImplementedException();
     }
 }
