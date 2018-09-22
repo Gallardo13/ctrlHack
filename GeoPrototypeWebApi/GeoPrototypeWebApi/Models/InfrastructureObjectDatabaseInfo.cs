@@ -3,7 +3,7 @@ namespace GeoPrototypeWebApi.Models
 {
     public class InfrastructureObjectDatabaseInfo
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         public string ContractNumber { get; set; }
 
@@ -11,9 +11,9 @@ namespace GeoPrototypeWebApi.Models
 
         public string Address { get; set; }
 
-        public double Latitude { get; set; }
+        public decimal Latitude { get; set; }
 
-        public double Longitude { get; set; }
+        public decimal Longitude { get; set; }
 
         public string TempObjectType { get; set; }
 
@@ -34,6 +34,8 @@ namespace GeoPrototypeWebApi.Models
         public string ContractorPhone { get; set; }
 
         public string Url { get; set; }
+
+        public string Description { get; set; }
 
         public InfrastructureObjectDatabaseInfo()
         {
