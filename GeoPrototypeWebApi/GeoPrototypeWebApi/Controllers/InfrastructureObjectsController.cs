@@ -12,7 +12,6 @@ namespace GeoPrototypeWebApi.Controllers
         [HttpGet("{year}/{id}")]
         public IEnumerable<InfrastructureObjectMapInfo> Get(int? year, int? id)
         {
-
             var objectsFacade = new InfrastructureObjectFacade();
 
 			if (year != null) 

@@ -5,7 +5,7 @@ namespace GeoPrototypeWebApi.Models
 {
     public class InfrastructureObjectMapInfo
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         public MapPoint Coordinates { get; set; }
 
@@ -41,11 +41,11 @@ namespace GeoPrototypeWebApi.Models
 
     public class MapPoint 
     {
-        public double X { get; set; }
+        public decimal X { get; set; }
 
-        public double Y { get; set; }
+        public decimal Y { get; set; }
 
-        public MapPoint(double x, double y) 
+        public MapPoint(decimal x, decimal y) 
         {
             X = x;
             Y = y;
