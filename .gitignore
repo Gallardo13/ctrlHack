@@ -6,3 +6,5 @@
 /GeoPrototypeWebApi/GeoPrototypeWebApi/bin
 /.vs
 /GeoPrototypeWebApi/.vs
+/GeoPrototypeWebApi/AppTests/bin
+/GeoPrototypeWebApi/AppTests/obj

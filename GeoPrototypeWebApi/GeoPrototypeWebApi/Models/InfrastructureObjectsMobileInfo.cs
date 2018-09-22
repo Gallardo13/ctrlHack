@@ -5,7 +5,7 @@ namespace GeoPrototypeWebApi.Models
     public class InfrastructureObjectsMobileInfo
     {
         // идентификатор объекта
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         // описание объекта
         public string Description { get; set; }

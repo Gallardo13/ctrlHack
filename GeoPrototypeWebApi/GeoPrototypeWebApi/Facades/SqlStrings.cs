@@ -11,12 +11,12 @@ namespace GeoPrototypeWebApi.Facades
 
         string GetObjectsByYear { get; }
 
-        string GetObjectById { get; set; }
+        string GetObjectById { get; }
     }
 
     public class SqlStrings : ISqlStrings
     {
-        public string GetNearObjects => "";
+        public string GetNearObjects => "select id, description, latitude, longitude from contracts where latitude between @LatitudeFrom and @LatitudeTo and longitude between @LongitudeFrom and @LongitudeTo";
 
         public string GetObjectsByYear => "";
 

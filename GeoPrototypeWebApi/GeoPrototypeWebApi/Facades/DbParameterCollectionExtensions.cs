@@ -4,7 +4,13 @@ namespace GeoPrototypeWebApi.Facades
 {
     public static class DbParameterCollectionExtensions
     {
-        public static void Add(this DbParameterCollection collection, string name, object value) =>
-            collection[collection.Add(value)].ParameterName = name;
+        public static void AddParameter(this DbCommand command, string name, object value)
+        {
+            var param = command.CreateParameter();
+            param.ParameterName = name;
+            param.Value = value;
+
+            command.Parameters.Add(param);
+        }
     }
 }

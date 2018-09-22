@@ -12,7 +12,7 @@ namespace GeoPrototypeWebApi.Facades
 
         public DbBaseFacade()
         {
-            ConnectionString = "Server=sv4.surayfer.com;Database=geoinfo;Uid=geoinfo;Pwd=tOrJNcnryhLTljjX;";
+            ConnectionString = "Server=sv4.surayfer.com;Database=geoinfo;Uid=geoinfo;Pwd=tOrJNcnryhLTljjX;SslMode=none;";
         }
 
         /// <summary>

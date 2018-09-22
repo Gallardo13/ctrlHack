@@ -14,10 +14,10 @@ namespace GeoPrototypeWebApi.Facades
         }
 
         // прямоугольник поиска в километрах
-        const double delta = 0.3;
+        const double delta = 111000;//0.3;
 
         // получить список объектов рядом с определенной точкой
-        IEnumerable<InfrastructureObjectsMobileInfo> GetNearObjects(double latitude, double longitude)
+        public IEnumerable<InfrastructureObjectsMobileInfo> GetNearObjects(double latitude, double longitude)
         {
             var retVal = new List<InfrastructureObjectsMobileInfo>();
 
@@ -29,18 +29,18 @@ namespace GeoPrototypeWebApi.Facades
             {
                 var cmd = db.CreateCommand();
                 cmd.CommandText = SqlStrings.GetNearObjects;
-                cmd.Parameters.Add("@LatitudeFrom", latitude - deltaLatitude);
-                cmd.Parameters.Add("@LatitudeTo", latitude + deltaLatitude);
-                cmd.Parameters.Add("@LongitudeFrom", longitude - deltaLongtitude);
-                cmd.Parameters.Add("@LongitudeTo", longitude + deltaLongtitude);
+                cmd.AddParameter("@LatitudeFrom", latitude - deltaLatitude);
+                cmd.AddParameter("@LatitudeTo", latitude + deltaLatitude);
+                cmd.AddParameter("@LongitudeFrom", longitude - deltaLongtitude);
+                cmd.AddParameter("@LongitudeTo", longitude + deltaLongtitude);
 
                 var dataReader = cmd.ExecuteReader();
 
                 while(dataReader.Read())
                     retVal.Add(new InfrastructureObjectsMobileInfo
                     {
-                        Id = (int)dataReader["id"],
-                        Description = (string)dataReader["description"],
+                        Id = (long)dataReader["id"],
+                        Description = (string)dataReader["description"] ?? "",
                         Latitude = (double)dataReader["latitude"],
                         Longitude = (double)dataReader["longitude"]
                     });
