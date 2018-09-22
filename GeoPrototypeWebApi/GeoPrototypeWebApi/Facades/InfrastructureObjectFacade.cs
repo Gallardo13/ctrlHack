@@ -14,20 +14,30 @@ namespace GeoPrototypeWebApi.Facades
 
         public IEnumerable<InfrastructureObjectMapInfo> GetObjectsByYear(int year) 
         {
+            var retVal = new List<InfrastructureObjectMapInfo>();
+
             using (var connection = GetDbConnection()) 
             {
-                // TODO чтение из БД
+                var cmd = connection.CreateCommand();
+                cmd.CommandText = SqlStrings.GetObjectsByYear;
+                cmd.Parameters.Add(year);
             }
-            return null;
+
+            return retVal;
         }
 
         public IEnumerable<InfrastructureObjectMapInfo> GetObjectById(int id) 
         {
+            var retVal = new List<InfrastructureObjectMapInfo>();
+
             using (var connection = GetDbConnection()) 
             {
-                // TODO чтение из БД
+                var cmd = connection.CreateCommand();
+                cmd.CommandText = SqlStrings.GetObjectById;
+                cmd.Parameters.Add(id);
             }
-            return null;
+
+            return retVal;
         }
     }
 }
