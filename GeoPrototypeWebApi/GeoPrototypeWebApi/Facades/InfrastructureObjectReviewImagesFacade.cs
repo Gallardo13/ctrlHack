@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -8,7 +9,54 @@ namespace GeoPrototypeWebApi.Facades
 {
     public class InfrastructureObjectReviewImagesFacade : DbBaseFacade
     {
-        public ImageFormat GetImageFormatByMimeType(string mimeType)
+        public ReviewImage GetImageById(long imageId, bool preview)
+        {
+            using (var db = GetDbConnection())
+            {
+                var cmd = db.CreateCommand();
+                cmd.CommandText = SqlStrings.ReadReviewImagesById;
+                cmd.AddParameter("@Id", imageId);
+
+                var dataReader = cmd.ExecuteReader();
+                if (!dataReader.Read())
+                    return null;
+
+                return new ReviewImage
+                {
+                    Id = (long)dataReader["id"],
+                    ReviewId = (long)dataReader["review_id"],
+                    MimeType = (string)dataReader[preview ? "preview_type" : "image_type"],
+                    Image = (byte[])dataReader[preview ? "preview" : "image"]
+                };
+            }
+        }
+
+        public IEnumerable<ReviewImage> GetImagesByReviewId(long reviewId, bool preview)
+        {
+            using (var db = GetDbConnection())
+            {
+                var cmd = db.CreateCommand();
+                cmd.CommandText = SqlStrings.ReadReviewImagesByReviewId;
+                cmd.AddParameter("@ReviewId", reviewId);
+
+                var dataReader = cmd.ExecuteReader();
+
+                var retVal = new List<ReviewImage>();
+
+                while(dataReader.Read())
+                    retVal.Add(new ReviewImage
+                    {
+                        Id = (long)dataReader["id"],
+                        ReviewId = (long)dataReader["review_id"],
+                        MimeType = (string)dataReader[preview ? "preview_type" : "image_type"],
+                        Image = (byte[])dataReader[preview ? "preview" : "image"]
+                    });
+
+                return retVal;
+            }
+        }
+
+        protected ImageFormat GetImageFormatByMimeType(string mimeType)
         {
             switch (mimeType.ToLower())
             {

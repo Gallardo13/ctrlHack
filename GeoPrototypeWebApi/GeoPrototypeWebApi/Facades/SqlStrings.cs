@@ -18,6 +18,14 @@ namespace GeoPrototypeWebApi.Facades
         string InsertReviewImage { get; }
 
         string GetObjectByIds { get; }
+
+        string ReadReviewById { get; }
+
+        string ReadReviewByInfrastructureObjectId { get; }
+
+        string ReadReviewImagesById { get; }
+
+        string ReadReviewImagesByReviewId { get; }
     }
 
     public class SqlStrings : ISqlStrings
@@ -45,5 +53,12 @@ namespace GeoPrototypeWebApi.Facades
             FROM contracts
             WHERE(`id` in @ids)";
 
+        public string ReadReviewById => "select id, contract_id, name, comment from reviews where id = @Id";
+
+        public string ReadReviewByInfrastructureObjectId => "select id, contract_id, name, comment from reviews where contract_id = @InfrastructureObjectId";
+
+        public string ReadReviewImagesById => "select id, review_id, preview_type, preview, image_type, image from images2reviews where id = @Id";
+
+        public string ReadReviewImagesByReviewId => "select id, review_id, preview_type, preview, image_type, image from images2reviews where review_id = @ReviewId";
     }
 }

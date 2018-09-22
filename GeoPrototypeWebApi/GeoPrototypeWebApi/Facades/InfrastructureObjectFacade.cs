@@ -33,10 +33,10 @@ namespace GeoPrototypeWebApi.Facades
                 {
                     var databaseObject = new InfrastructureObjectDatabaseInfo();
                     databaseObject.Id = (long)dataReader["id"];
-                    databaseObject.Address = (string)(dataReader["address"] == DBNull.Value ? "" : dataReader["address"]);
-                    databaseObject.ObjectType = (string)(dataReader["object_type"] == DBNull.Value ? "" : dataReader["object_type"]);
-                    databaseObject.Latitude = (decimal)(dataReader["latitude"] == DBNull.Value ? new decimal() : dataReader["latitude"]);
-                    databaseObject.Longitude = (decimal)(dataReader["longitude"] == DBNull.Value ? new decimal() : dataReader["longitude"]);
+                    databaseObject.Address = dataReader.GetNullableString("address");
+                    databaseObject.ObjectType = dataReader.GetNullableString("object_type");
+                    databaseObject.Latitude = dataReader.GetNullable<decimal>("latitude");
+                    databaseObject.Longitude = dataReader.GetNullable<decimal>("longitude");
 
                     /*databaseObject.ContractNumber = (string)(dataReader["contract_number"] == DBNull.Value ? "" : dataReader["contract_number"]);
                     databaseObject.TempAddress = (string)(dataReader["temp_address"] == DBNull.Value ? "" : dataReader["temp_address"]);

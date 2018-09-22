@@ -1,6 +1,6 @@
 ﻿using System.Data.Common;
 
-namespace GeoPrototypeWebApi.Facades
+namespace GeoPrototypeWebApi
 {
     public static class DbParameterCollectionExtensions
     {
