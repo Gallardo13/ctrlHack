@@ -5,7 +5,7 @@ namespace GeoPrototypeWebApi.Facades
 {
     public class InfrastructureObjectReviewsFacade : DbBaseFacade
     {
-        public long InsertReview(InfrastructureObjectReviewsController.InfrastructureObjectReview infrastructureObjectReview)
+        public long InsertReview(InfrastructureObjectReview infrastructureObjectReview)
         {
             using (var db = GetDbConnection())
             {
@@ -15,7 +15,7 @@ namespace GeoPrototypeWebApi.Facades
                 cmd.AddParameter("@UserName", infrastructureObjectReview.UserName);
                 cmd.AddParameter("@ReviewText", infrastructureObjectReview.ReviewText);
 
-                return (long)cmd.ExecuteScalar();
+                return (long)(ulong)cmd.ExecuteScalar();
             }
         }
     }
