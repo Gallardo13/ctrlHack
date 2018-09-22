@@ -11,7 +11,7 @@ namespace GeoPrototypeWebApi.Controllers
         [HttpGet("{latitude}/{longtitude}")]
         public IEnumerable<InfrastructureObjectsMobileInfo> Get(double latitude, double longitude)
         {
-            var facade = new MobileDataFacade();
+            var facade = new NearObjectsFacade();
 
             return facade.GetNearObjects(latitude, longitude);
         }

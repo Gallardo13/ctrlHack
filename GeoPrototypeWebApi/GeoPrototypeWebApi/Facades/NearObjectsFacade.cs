@@ -5,7 +5,7 @@ using System.Data.Common;
 
 namespace GeoPrototypeWebApi.Facades
 {
-    public class MobileDataFacade : DbBaseFacade
+    public class NearObjectsFacade : DbBaseFacade
     {
         // перевод градусов в радианы
         private double DegreeToRadian(double angle)
@@ -47,6 +47,11 @@ namespace GeoPrototypeWebApi.Facades
             }
 
             return retVal;
+        }
+
+        public void AddNearObjectReview(long id, string review)
+        {
+
         }
     }
 }
