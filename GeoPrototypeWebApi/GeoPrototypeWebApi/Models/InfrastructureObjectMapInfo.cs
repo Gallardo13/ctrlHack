@@ -11,31 +11,29 @@ namespace GeoPrototypeWebApi.Models
 
         public Dictionary<string, string> Data { get; set; }
 
-        public InfrastructureObjectMapInfo()
-        {
-        }
+        public InfrastructureObjectMapInfo() { }
 
         public void ConvertToMapObject(InfrastructureObjectDatabaseInfo databaseObjectInfo) 
         {
             Id = databaseObjectInfo.Id;
             Coordinates = new MapPoint(databaseObjectInfo.Latitude, databaseObjectInfo.Longitude);
 
-            Data = new Dictionary<string, string>();
-
-            Data.Add("ContractNumber", databaseObjectInfo.ContractNumber);
-            Data.Add("Address", databaseObjectInfo.Address);
-            Data.Add("TempAddress", databaseObjectInfo.TempAddress);
-            Data.Add("ObjectType", databaseObjectInfo.ObjectType);
-            Data.Add("TempObjectType", databaseObjectInfo.TempObjectType);
-            Data.Add("WorkType", databaseObjectInfo.WorkType);
-            Data.Add("StartDate", databaseObjectInfo.StartDate.ToString());
-            Data.Add("FinishDate", databaseObjectInfo.FinishDate.ToString());
-            Data.Add("CustomerName", databaseObjectInfo.CustomerName);
-            Data.Add("CustomerPhone", databaseObjectInfo.CustomerPhone);
-            Data.Add("ContractorName", databaseObjectInfo.ContractorName);
-            Data.Add("ContractorPhone", databaseObjectInfo.ContractorPhone);
-            Data.Add("Url", databaseObjectInfo.Url);
-
+            Data = new Dictionary<string, string>
+            {
+                { "ContractNumber", databaseObjectInfo.ContractNumber },
+                { "Address", databaseObjectInfo.Address },
+                { "TempAddress", databaseObjectInfo.TempAddress },
+                { "ObjectType", databaseObjectInfo.ObjectType },
+                { "TempObjectType", databaseObjectInfo.TempObjectType },
+                { "WorkType", databaseObjectInfo.WorkType },
+                { "StartDate", databaseObjectInfo.StartDate.ToString() },
+                { "FinishDate", databaseObjectInfo.FinishDate.ToString() },
+                { "CustomerName", databaseObjectInfo.CustomerName },
+                { "CustomerPhone", databaseObjectInfo.CustomerPhone },
+                { "ContractorName", databaseObjectInfo.ContractorName },
+                { "ContractorPhone", databaseObjectInfo.ContractorPhone },
+                { "Url", databaseObjectInfo.Url }
+            };
         }
     }
 

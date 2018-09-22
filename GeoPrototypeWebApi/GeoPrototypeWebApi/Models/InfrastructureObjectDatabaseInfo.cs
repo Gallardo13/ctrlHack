@@ -37,8 +37,6 @@ namespace GeoPrototypeWebApi.Models
 
         public string Description { get; set; }
 
-        public InfrastructureObjectDatabaseInfo()
-        {
-        }
+        public InfrastructureObjectDatabaseInfo() { }
     }
 }

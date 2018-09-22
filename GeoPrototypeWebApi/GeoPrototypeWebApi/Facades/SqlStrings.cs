@@ -34,7 +34,7 @@ namespace GeoPrototypeWebApi.Facades
             FROM contracts
             WHERE(`id` = @id)";
 
-        public string InsertReview => throw new NotImplementedException();
+        public string InsertReview => "insert into reviews (contract_id, name, comment) values (@InfrastructureObjectId, @UserName, @ReviewText); select last_insert_id();";
 
         public string InsertReviewImage => throw new NotImplementedException();
     }

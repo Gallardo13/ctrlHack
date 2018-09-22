@@ -7,11 +7,6 @@ namespace GeoPrototypeWebApi.Facades
 {
     public class InfrastructureObjectFacade : DbBaseFacade
     {
-        public InfrastructureObjectFacade()
-        {
-        }
-
-
         public IEnumerable<InfrastructureObjectMapInfo> GetObjectsByYear(int year, decimal startLon, decimal startLat, decimal endLon, decimal endLat) 
         {
             var retVal = new List<InfrastructureObjectMapInfo>();
