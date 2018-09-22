@@ -38,7 +38,7 @@ namespace GeoPrototypeWebApi.Facades
 
         public string InsertReview => "insert into reviews (contract_id, name, comment) values (@InfrastructureObjectId, @UserName, @ReviewText); select last_insert_id();";
 
-        public string InsertReviewImage => throw new NotImplementedException();
+        public string InsertReviewImage => "insert into images2reviews (review_id, image_type, image, preview_type, preview) values (@ReviewId, @ImageMimeType, @Image, @ThumbnailMimeType, @ThumbnailImage)";
 
         public string GetObjectByIds =>
            @"SELECT *
