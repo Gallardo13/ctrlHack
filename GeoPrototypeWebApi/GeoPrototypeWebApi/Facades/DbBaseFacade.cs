@@ -1,11 +1,14 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Data.Common;
 
-namespace GeoPrototypeWebApi.Controllers
+namespace GeoPrototypeWebApi.Facades
 {
     public class DbBaseFacade
     {
-        public string ConnectionString {get;set;}
+        public string ConnectionString { get; set; }
+
+        // строки запросов
+        public ISqlStrings SqlStrings { get; } = new SqlStrings();
 
         public DbBaseFacade()
         {
@@ -20,6 +23,7 @@ namespace GeoPrototypeWebApi.Controllers
         {
             var conn = new MySqlConnection(ConnectionString);
             conn.Open();
+
             return conn;
         }
     }
