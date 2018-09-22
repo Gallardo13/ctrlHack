@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace GeoPrototypeWebApi.Models
 {
     public class InfrastructureObjectDatabaseInfo

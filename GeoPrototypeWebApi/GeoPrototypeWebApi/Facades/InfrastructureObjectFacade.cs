@@ -1,7 +1,6 @@
-﻿using System;
+﻿using GeoPrototypeWebApi.Models;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using GeoPrototypeWebApi.Models;
 
 namespace GeoPrototypeWebApi.Facades
 {

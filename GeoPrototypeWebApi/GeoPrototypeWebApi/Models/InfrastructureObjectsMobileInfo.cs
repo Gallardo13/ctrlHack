@@ -1,5 +1,4 @@
-﻿using System;
-namespace GeoPrototypeWebApi.Models
+﻿namespace GeoPrototypeWebApi.Models
 {
     // описание объекта для передачи в мобильное приложение
     public class InfrastructureObjectsMobileInfo

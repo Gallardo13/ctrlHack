@@ -53,8 +53,8 @@ namespace AppTests
         {
             //GetNearObjects();
             //PostReview();
-            ReadReview();
-            //PostImage();
+            //ReadReview();
+            PostImage();
         }
     }
 }

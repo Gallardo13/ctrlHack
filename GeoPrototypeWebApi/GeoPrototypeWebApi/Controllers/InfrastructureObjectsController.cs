@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using GeoPrototypeWebApi.Facades;
+﻿using GeoPrototypeWebApi.Facades;
 using GeoPrototypeWebApi.Models;
-using System.Web.Http;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace GeoPrototypeWebApi.Controllers
 {

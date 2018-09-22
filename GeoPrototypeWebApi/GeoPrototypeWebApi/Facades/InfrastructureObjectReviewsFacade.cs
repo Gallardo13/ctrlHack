@@ -1,6 +1,5 @@
-﻿using System;
+﻿using GeoPrototypeWebApi.Controllers;
 using System.Collections.Generic;
-using GeoPrototypeWebApi.Controllers;
 
 namespace GeoPrototypeWebApi.Facades
 {
