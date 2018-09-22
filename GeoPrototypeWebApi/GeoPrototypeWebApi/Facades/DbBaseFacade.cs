@@ -1,7 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Data.Common;
 
-namespace GeoPrototypeWebApi.Controllers
+namespace GeoPrototypeWebApi.Facades
 {
     public class DbBaseFacade
     {
