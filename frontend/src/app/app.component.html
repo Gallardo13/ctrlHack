@@ -1,0 +1,17 @@
+<div class="options-container">
+  <p>Параметры: </p>
+  <dx-select-box
+    [dataSource]="['2018', '2017', '2016', '2015', '2014']"
+    placeholder="Выберете год...">
+  </dx-select-box>
+  <div class="option" *ngFor="let option of keys">
+      <dx-check-box
+        [text]="option"
+        (onValueChanged)="onChangeCheckbox($event)"
+        [(value)]="types[option]">
+      </dx-check-box>
+  </div>
+</div>
+<div class="map-container">
+  <app-ymaps #map></app-ymaps>
+</div>
