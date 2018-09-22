@@ -17,16 +17,14 @@ namespace GeoPrototypeWebApi.Controllers
 
 			if (year != null) 
 			{
-                return objectsFacade.GetObjectsByYear(year);      
+                return objectsFacade.GetObjectsByYear(year.Value);      
 			}
             if (id != null) 
             {
-                return objectsFacade.GetObjectById(id);
+                return objectsFacade.GetObjectById(id.Value);
             }
 
             return null;
         }
-
-    
     }
 }

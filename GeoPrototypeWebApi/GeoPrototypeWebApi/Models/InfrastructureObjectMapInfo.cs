@@ -1,41 +1,54 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace GeoPrototypeWebApi.Models
 {
     public class InfrastructureObjectMapInfo
     {
-
         public int Id { get; set; }
 
-        public string TempAddress { get; set; }
+        public MapPoint Coordinates { get; set; }
 
+        public Dictionary<string, string> Data { get; set; }
+
+        public InfrastructureObjectMapInfo()
+        {
+        }
+
+        public void ConvertToMapObject(InfrastructureObjectDatabaseInfo databaseObjectInfo) 
+        {
+            Id = databaseObjectInfo.Id;
+            Coordinates = new MapPoint(databaseObjectInfo.Latitude, databaseObjectInfo.Longitude);
+
+            Data = new Dictionary<string, string>();
+
+            Data.Add("ContractNumber", databaseObjectInfo.ContractNumber);
+            Data.Add("Address", databaseObjectInfo.Address);
+            Data.Add("TempAddress", databaseObjectInfo.TempAddress);
+            Data.Add("ObjectType", databaseObjectInfo.ObjectType);
+            Data.Add("TempObjectType", databaseObjectInfo.TempObjectType);
+            Data.Add("WorkType", databaseObjectInfo.WorkType);
+            Data.Add("StartDate", databaseObjectInfo.StartDate.ToString());
+            Data.Add("FinishDate", databaseObjectInfo.FinishDate.ToString());
+            Data.Add("CustomerName", databaseObjectInfo.CustomerName);
+            Data.Add("CustomerPhone", databaseObjectInfo.CustomerPhone);
+            Data.Add("ContractorName", databaseObjectInfo.ContractorName);
+            Data.Add("ContractorPhone", databaseObjectInfo.ContractorPhone);
+            Data.Add("Url", databaseObjectInfo.Url);
+
+        }
+    }
+
+    public class MapPoint 
+    {
         public double X { get; set; }
 
         public double Y { get; set; }
 
-        public string TempObjectType { get; set; }
-
-        public string ObjectType { get; set; }
-
-        public string WorkType { get; set; }
-
-        public DateTime StartDate { get; set; }
-
-        public DateTime FinishDate { get; set; }
-
-        public string CustomerName { get; set; }
-
-        public string CustomerPhone { get; set; }
-
-        public string ContractorName { get; set; }
-
-        public string ContractorPhone { get; set; }
-
-        public string Url { get; set; }
-
-
-
-        public ObjectMapInfo()
+        public MapPoint(double x, double y) 
         {
+            X = x;
+            Y = y;
         }
     }
 }
