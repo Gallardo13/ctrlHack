@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,9 +13,13 @@ namespace GeoPrototypeWebApi.Facades
 
         string GetObjectById { get; }
 
+<<<<<<< HEAD
         string InsertReview { get; }
 
         string InsertReviewImage { get; }
+=======
+        string GetObjectByIds { get; }
+>>>>>>> 6e1717f... чтение нескольких объектов
     }
 
     public class SqlStrings : ISqlStrings
@@ -34,8 +38,19 @@ namespace GeoPrototypeWebApi.Facades
             FROM contracts
             WHERE(`id` = @id)";
 
+<<<<<<< HEAD
         public string InsertReview => "insert into reviews (contract_id, name, comment) values (@InfrastructureObjectId, @UserName, @ReviewText); select last_insert_id();";
+=======
+<<<<<<< HEAD
+        public string InsertReview => throw new NotImplementedException();
+>>>>>>> 27ca28b... чтение нескольких объектов
 
         public string InsertReviewImage => throw new NotImplementedException();
+=======
+        public string GetObjectByIds =>
+           @"SELECT *
+            FROM contracts
+            WHERE(`id` in @ids)";
+>>>>>>> 6e1717f... чтение нескольких объектов
     }
 }

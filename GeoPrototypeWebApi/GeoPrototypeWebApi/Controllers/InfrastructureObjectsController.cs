@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using GeoPrototypeWebApi.Facades;
 using GeoPrototypeWebApi.Models;
+using System.Web.Http;
 
 namespace GeoPrototypeWebApi.Controllers
 {
@@ -23,6 +24,16 @@ namespace GeoPrototypeWebApi.Controllers
             var objectsFacade = new InfrastructureObjectFacade();
             return objectsFacade.GetObjectById(id);
         }
+
+        // GET api/values/5
+        [HttpGet]
+        public IEnumerable<InfrastructureObjectMapInfo> Get([FromQuery] int[] ids)
+        {            
+            var objectsFacade = new InfrastructureObjectFacade();
+            return objectsFacade.GetObjectByIds(ids);
+        }
+
+
     }
 
 
