@@ -1,14 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System.Data.Common;
 
 namespace GeoPrototypeWebApi.Controllers
 {
-    public class DbConstollerBase : Controller
+    public class DbBaseFacade
     {
         public string ConnectionString {get;set;}
 
-        public DbConstollerBase()
+        public DbBaseFacade()
         {
             ConnectionString = "Server=sv4.surayfer.com;Database=geoinfo;Uid=geoinfo;Pwd=tOrJNcnryhLTljjX;";
         }

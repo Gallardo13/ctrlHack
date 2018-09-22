@@ -3,7 +3,6 @@
 ################################################################################
 
 /GeoPrototypeWebApi/GeoPrototypeWebApi/obj
-/GeoPrototypeWebApi/GeoPrototypeWebApi/bin/Debug/netcoreapp2.1
+/GeoPrototypeWebApi/GeoPrototypeWebApi/bin
 /.vs
-/GeoPrototypeWebApi/.vs/GeoPrototypeWebApi/v15
-/GeoPrototypeWebApi/.vs/GeoPrototypeWebApi/DesignTimeBuild
+/GeoPrototypeWebApi/.vs

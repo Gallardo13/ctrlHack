@@ -1,13 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 
 namespace GeoPrototypeWebApi.Controllers
 {
     [Route("api/[controller]")]
-    public class InfrastructureObjectsController : DbConstollerBase
+    public class InfrastructureObjectsController : Controller
     {
         // GET: api/values
         [HttpGet]
