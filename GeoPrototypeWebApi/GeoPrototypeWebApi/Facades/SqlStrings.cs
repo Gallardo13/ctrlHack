@@ -18,11 +18,12 @@ namespace GeoPrototypeWebApi.Facades
     {
         public string GetNearObjects => "select id, description, latitude, longitude from contracts where latitude between @LatitudeFrom and @LatitudeTo and longitude between @LongitudeFrom and @LongitudeTo";
 
-        public string GetObjectsByYear => 
+        public string GetObjectsByYear =>
             @"SELECT * 
             FROM contracts 
-            WHERE (`start_date` between @dateFrom AND @dateTo) 
-            OR  (`finish_date` between @dateFrom AND @dateTo)";
+            WHERE ((`start_date` between @DateFrom AND @DateTo) 
+            OR  (`finish_date` between @DateFrom AND @DateTo))
+            AND latitude between @LatitudeFrom and @LatitudeTo and longitude between @LongitudeFrom and @LongitudeTo ";
 
         public string GetObjectById => 
             @"SELECT*

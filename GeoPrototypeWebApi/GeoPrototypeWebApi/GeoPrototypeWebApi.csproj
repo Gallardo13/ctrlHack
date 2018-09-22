@@ -15,6 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Controllers\ValuesController.cs" />
+    <Compile Remove="Controllers\AdminPanelController.cs" />
   </ItemGroup>
 </Project>

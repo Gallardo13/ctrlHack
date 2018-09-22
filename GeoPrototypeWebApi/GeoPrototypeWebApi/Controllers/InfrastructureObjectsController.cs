@@ -9,21 +9,21 @@ namespace GeoPrototypeWebApi.Controllers
     public class InfrastructureObjectsController : Controller
     {
         // GET api/values/5
-        [HttpGet("{year}/{id}")]
-        public IEnumerable<InfrastructureObjectMapInfo> Get(int? year, int? id)
+        [HttpGet("{year}/{startLon}/{startLat}/{endLon}/{endLat}")]
+        public IEnumerable<InfrastructureObjectMapInfo> Get(int year, decimal startLon, decimal startLat, decimal endLon, decimal endLat)
         {
             var objectsFacade = new InfrastructureObjectFacade();
+            return objectsFacade.GetObjectsByYear(year, startLon, startLat, endLon, endLat);      
+        }
 
-			if (year != null) 
-			{
-                return objectsFacade.GetObjectsByYear(year.Value);      
-			}
-            if (id != null) 
-            {
-                return objectsFacade.GetObjectById(id.Value);
-            }
-
-            return null;
+        // GET api/values/5
+        [HttpGet("{id}")]
+        public IEnumerable<InfrastructureObjectMapInfo> Get(int id)
+        {
+            var objectsFacade = new InfrastructureObjectFacade();
+            return objectsFacade.GetObjectById(id);
         }
     }
+
+
 }
