@@ -8,3 +8,5 @@
 /GeoPrototypeWebApi/.vs
 /GeoPrototypeWebApi/AppTests/bin
 /GeoPrototypeWebApi/AppTests/obj
+/GeoPrototypeWebApi/LoadContracts/bin
+/GeoPrototypeWebApi/LoadContracts/obj
