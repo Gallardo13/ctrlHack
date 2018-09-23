@@ -37,7 +37,7 @@ namespace GeoPrototypeWebApi.Facades
                     databaseObject.Latitude = dataReader.GetNullable<decimal>("latitude");
                     databaseObject.Longitude = dataReader.GetNullable<decimal>("longitude");
 
-                    /*databaseObject.ContractNumber = (string)(dataReader["contract_number"] == DBNull.Value ? "" : dataReader["contract_number"]);
+                    databaseObject.ContractNumber = (string)(dataReader["contract_number"] == DBNull.Value ? "" : dataReader["contract_number"]);
                     databaseObject.TempAddress = (string)(dataReader["temp_address"] == DBNull.Value ? "" : dataReader["temp_address"]);
                     databaseObject.TempObjectType = (string)(dataReader["temp_object_type"] == DBNull.Value ? "" : dataReader["temp_object_type"]);
                     databaseObject.WorkType = (string)(dataReader["work_type"] == DBNull.Value ? "" : dataReader["work_type"]);
@@ -49,7 +49,7 @@ namespace GeoPrototypeWebApi.Facades
                     databaseObject.ContractorPhone = (string)(dataReader["contractor_phone"] == DBNull.Value ? "" : dataReader["contractor_phone"]);
                     databaseObject.Url = (string)(dataReader["contract_url"] == DBNull.Value ? "" : dataReader["contract_url"]);
                     databaseObject.Description = (string)(dataReader["description"] == DBNull.Value ? "" : dataReader["description"]);
-                    */
+
 
                     var mapObject = new InfrastructureObjectMapInfo();
                     mapObject.ConvertToMapObject(databaseObject);
