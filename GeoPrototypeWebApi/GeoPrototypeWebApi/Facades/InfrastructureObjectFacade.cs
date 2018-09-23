@@ -30,25 +30,27 @@ namespace GeoPrototypeWebApi.Facades
 
                 while (dataReader.Read())
                 {
-                    var databaseObject = new InfrastructureObjectDatabaseInfo();
-                    databaseObject.Id = (long)dataReader["id"];
-                    databaseObject.Address = dataReader.GetNullableString("address");
-                    databaseObject.ObjectType = dataReader.GetNullableString("object_type");
-                    databaseObject.Latitude = dataReader.GetNullable<decimal>("latitude");
-                    databaseObject.Longitude = dataReader.GetNullable<decimal>("longitude");
+                    var databaseObject = new InfrastructureObjectDatabaseInfo
+                    {
+                        Id = (long)dataReader["id"],
+                        Address = dataReader.GetNullableString("address"),
+                        ObjectType = dataReader.GetNullableString("object_type"),
+                        Latitude = dataReader.GetNullable<decimal>("latitude"),
+                        Longitude = dataReader.GetNullable<decimal>("longitude"),
 
-                    databaseObject.ContractNumber = (string)(dataReader["contract_number"] == DBNull.Value ? "" : dataReader["contract_number"]);
-                    databaseObject.TempAddress = (string)(dataReader["temp_address"] == DBNull.Value ? "" : dataReader["temp_address"]);
-                    databaseObject.TempObjectType = (string)(dataReader["temp_object_type"] == DBNull.Value ? "" : dataReader["temp_object_type"]);
-                    databaseObject.WorkType = (string)(dataReader["work_type"] == DBNull.Value ? "" : dataReader["work_type"]);
-                    databaseObject.StartDate = (DateTime)(dataReader["start_date"] == DBNull.Value ? null : dataReader["start_date"]);
-                    databaseObject.FinishDate = (DateTime)(dataReader["finish_date"] == DBNull.Value ? null : dataReader["finish_date"]);
-                    databaseObject.CustomerName = (string)(dataReader["customer_name"] == DBNull.Value ? "" : dataReader["customer_name"]);
-                    databaseObject.CustomerPhone = (string)(dataReader["customer_phone"] == DBNull.Value ? "" : dataReader["customer_phone"]);
-                    databaseObject.ContractorName = (string)(dataReader["contractor_name"] == DBNull.Value ? "" : dataReader["contractor_name"]);
-                    databaseObject.ContractorPhone = (string)(dataReader["contractor_phone"] == DBNull.Value ? "" : dataReader["contractor_phone"]);
-                    databaseObject.Url = (string)(dataReader["contract_url"] == DBNull.Value ? "" : dataReader["contract_url"]);
-                    databaseObject.Description = (string)(dataReader["description"] == DBNull.Value ? "" : dataReader["description"]);
+                        ContractNumber = (string)(dataReader["contract_number"] == DBNull.Value ? "" : dataReader["contract_number"]),
+                        TempAddress = (string)(dataReader["temp_address"] == DBNull.Value ? "" : dataReader["temp_address"]),
+                        TempObjectType = (string)(dataReader["temp_object_type"] == DBNull.Value ? "" : dataReader["temp_object_type"]),
+                        WorkType = (string)(dataReader["work_type"] == DBNull.Value ? "" : dataReader["work_type"]),
+                        StartDate = (DateTime)(dataReader["start_date"] == DBNull.Value ? null : dataReader["start_date"]),
+                        FinishDate = (DateTime)(dataReader["finish_date"] == DBNull.Value ? null : dataReader["finish_date"]),
+                        CustomerName = (string)(dataReader["customer_name"] == DBNull.Value ? "" : dataReader["customer_name"]),
+                        CustomerPhone = (string)(dataReader["customer_phone"] == DBNull.Value ? "" : dataReader["customer_phone"]),
+                        ContractorName = (string)(dataReader["contractor_name"] == DBNull.Value ? "" : dataReader["contractor_name"]),
+                        ContractorPhone = (string)(dataReader["contractor_phone"] == DBNull.Value ? "" : dataReader["contractor_phone"]),
+                        Url = (string)(dataReader["contract_url"] == DBNull.Value ? "" : dataReader["contract_url"]),
+                        Description = (string)(dataReader["description"] == DBNull.Value ? "" : dataReader["description"])
+                    };
 
 
                     var mapObject = new InfrastructureObjectMapInfo();
@@ -75,24 +77,26 @@ namespace GeoPrototypeWebApi.Facades
 
                 while (dataReader.Read())
                 {
-                    var databaseObject = new InfrastructureObjectDatabaseInfo();
-                    databaseObject.Id = (long)dataReader["id"];
-                    databaseObject.ContractNumber = (string)(dataReader["contract_number"] == DBNull.Value ? "" : dataReader["contract_number"]);
-                    databaseObject.Address = (string)(dataReader["address"] == DBNull.Value ? "" : dataReader["address"]);
-                    databaseObject.TempAddress = (string)(dataReader["temp_address"] == DBNull.Value ? "" : dataReader["temp_address"]);
-                    databaseObject.Latitude = (decimal)(dataReader["latitude"] == DBNull.Value ? new decimal() : dataReader["latitude"]);
-                    databaseObject.Longitude = (decimal)(dataReader["longitude"] == DBNull.Value ? new decimal() : dataReader["longitude"]);
-                    databaseObject.TempObjectType = (string)(dataReader["temp_object_type"] == DBNull.Value ? "" : dataReader["temp_object_type"]);
-                    databaseObject.ObjectType = (string)(dataReader["object_type"] == DBNull.Value ? "" : dataReader["object_type"]);
-                    databaseObject.WorkType = (string)(dataReader["work_type"] == DBNull.Value ? "" : dataReader["work_type"]);
-                    databaseObject.StartDate = (DateTime)(dataReader["start_date"] == DBNull.Value ? null : dataReader["start_date"]);
-                    databaseObject.FinishDate = (DateTime)(dataReader["finish_date"] == DBNull.Value ? null : dataReader["finish_date"]);
-                    databaseObject.CustomerName = (string)(dataReader["customer_name"] == DBNull.Value ? "" : dataReader["customer_name"]);
-                    databaseObject.CustomerPhone = (string)(dataReader["customer_phone"] == DBNull.Value ? "" : dataReader["customer_phone"]);
-                    databaseObject.ContractorName = (string)(dataReader["contractor_name"] == DBNull.Value ? "" : dataReader["contractor_name"]);
-                    databaseObject.ContractorPhone = (string)(dataReader["contractor_phone"] == DBNull.Value ? "" : dataReader["contractor_phone"]);
-                    databaseObject.Url = (string)(dataReader["contract_url"] == DBNull.Value ? "" : dataReader["contract_url"]);
-                    databaseObject.Description = (string)(dataReader["description"] == DBNull.Value ? "" : dataReader["description"]);
+                    var databaseObject = new InfrastructureObjectDatabaseInfo
+                    {
+                        Id = (long)dataReader["id"],
+                        ContractNumber = (string)(dataReader["contract_number"] == DBNull.Value ? "" : dataReader["contract_number"]),
+                        Address = (string)(dataReader["address"] == DBNull.Value ? "" : dataReader["address"]),
+                        TempAddress = (string)(dataReader["temp_address"] == DBNull.Value ? "" : dataReader["temp_address"]),
+                        Latitude = (decimal)(dataReader["latitude"] == DBNull.Value ? new decimal() : dataReader["latitude"]),
+                        Longitude = (decimal)(dataReader["longitude"] == DBNull.Value ? new decimal() : dataReader["longitude"]),
+                        TempObjectType = (string)(dataReader["temp_object_type"] == DBNull.Value ? "" : dataReader["temp_object_type"]),
+                        ObjectType = (string)(dataReader["object_type"] == DBNull.Value ? "" : dataReader["object_type"]),
+                        WorkType = (string)(dataReader["work_type"] == DBNull.Value ? "" : dataReader["work_type"]),
+                        StartDate = (DateTime)(dataReader["start_date"] == DBNull.Value ? null : dataReader["start_date"]),
+                        FinishDate = (DateTime)(dataReader["finish_date"] == DBNull.Value ? null : dataReader["finish_date"]),
+                        CustomerName = (string)(dataReader["customer_name"] == DBNull.Value ? "" : dataReader["customer_name"]),
+                        CustomerPhone = (string)(dataReader["customer_phone"] == DBNull.Value ? "" : dataReader["customer_phone"]),
+                        ContractorName = (string)(dataReader["contractor_name"] == DBNull.Value ? "" : dataReader["contractor_name"]),
+                        ContractorPhone = (string)(dataReader["contractor_phone"] == DBNull.Value ? "" : dataReader["contractor_phone"]),
+                        Url = (string)(dataReader["contract_url"] == DBNull.Value ? "" : dataReader["contract_url"]),
+                        Description = (string)(dataReader["description"] == DBNull.Value ? "" : dataReader["description"])
+                    };
 
                     var mapObject = new InfrastructureObjectMapInfo();
                     mapObject.ConvertToMapObject(databaseObject);
@@ -117,24 +121,26 @@ namespace GeoPrototypeWebApi.Facades
 
                 while (dataReader.Read())
                 {
-                    var databaseObject = new InfrastructureObjectDatabaseInfo();
-                    databaseObject.Id = (long)dataReader["id"];
-                    databaseObject.ContractNumber = (string)(dataReader["contract_number"] == DBNull.Value ? "" : dataReader["contract_number"]);
-                    databaseObject.Address = (string)(dataReader["address"] == DBNull.Value ? "" : dataReader["address"]);
-                    databaseObject.TempAddress = (string)(dataReader["temp_address"] == DBNull.Value ? "" : dataReader["temp_address"]);
-                    databaseObject.Latitude = (decimal)(dataReader["latitude"] == DBNull.Value ? new decimal() : dataReader["latitude"]);
-                    databaseObject.Longitude = (decimal)(dataReader["longitude"] == DBNull.Value ? new decimal() : dataReader["longitude"]);
-                    databaseObject.TempObjectType = (string)(dataReader["temp_object_type"] == DBNull.Value ? "" : dataReader["temp_object_type"]);
-                    databaseObject.ObjectType = (string)(dataReader["object_type"] == DBNull.Value ? "" : dataReader["object_type"]);
-                    databaseObject.WorkType = (string)(dataReader["work_type"] == DBNull.Value ? "" : dataReader["work_type"]);
-                    databaseObject.StartDate = (DateTime)(dataReader["start_date"] == DBNull.Value ? null : dataReader["start_date"]);
-                    databaseObject.FinishDate = (DateTime)(dataReader["finish_date"] == DBNull.Value ? null : dataReader["finish_date"]);
-                    databaseObject.CustomerName = (string)(dataReader["customer_name"] == DBNull.Value ? "" : dataReader["customer_name"]);
-                    databaseObject.CustomerPhone = (string)(dataReader["customer_phone"] == DBNull.Value ? "" : dataReader["customer_phone"]);
-                    databaseObject.ContractorName = (string)(dataReader["contractor_name"] == DBNull.Value ? "" : dataReader["contractor_name"]);
-                    databaseObject.ContractorPhone = (string)(dataReader["contractor_phone"] == DBNull.Value ? "" : dataReader["contractor_phone"]);
-                    databaseObject.Url = (string)(dataReader["contract_url"] == DBNull.Value ? "" : dataReader["contract_url"]);
-                    databaseObject.Description = (string)(dataReader["description"] == DBNull.Value ? "" : dataReader["description"]);
+                    var databaseObject = new InfrastructureObjectDatabaseInfo
+                    {
+                        Id = (long)dataReader["id"],
+                        ContractNumber = (string)(dataReader["contract_number"] == DBNull.Value ? "" : dataReader["contract_number"]),
+                        Address = (string)(dataReader["address"] == DBNull.Value ? "" : dataReader["address"]),
+                        TempAddress = (string)(dataReader["temp_address"] == DBNull.Value ? "" : dataReader["temp_address"]),
+                        Latitude = (decimal)(dataReader["latitude"] == DBNull.Value ? new decimal() : dataReader["latitude"]),
+                        Longitude = (decimal)(dataReader["longitude"] == DBNull.Value ? new decimal() : dataReader["longitude"]),
+                        TempObjectType = (string)(dataReader["temp_object_type"] == DBNull.Value ? "" : dataReader["temp_object_type"]),
+                        ObjectType = (string)(dataReader["object_type"] == DBNull.Value ? "" : dataReader["object_type"]),
+                        WorkType = (string)(dataReader["work_type"] == DBNull.Value ? "" : dataReader["work_type"]),
+                        StartDate = (DateTime)(dataReader["start_date"] == DBNull.Value ? null : dataReader["start_date"]),
+                        FinishDate = (DateTime)(dataReader["finish_date"] == DBNull.Value ? null : dataReader["finish_date"]),
+                        CustomerName = (string)(dataReader["customer_name"] == DBNull.Value ? "" : dataReader["customer_name"]),
+                        CustomerPhone = (string)(dataReader["customer_phone"] == DBNull.Value ? "" : dataReader["customer_phone"]),
+                        ContractorName = (string)(dataReader["contractor_name"] == DBNull.Value ? "" : dataReader["contractor_name"]),
+                        ContractorPhone = (string)(dataReader["contractor_phone"] == DBNull.Value ? "" : dataReader["contractor_phone"]),
+                        Url = (string)(dataReader["contract_url"] == DBNull.Value ? "" : dataReader["contract_url"]),
+                        Description = (string)(dataReader["description"] == DBNull.Value ? "" : dataReader["description"])
+                    };
 
                     var mapObject = new InfrastructureObjectMapInfo();
                     mapObject.ConvertToMapObject(databaseObject);
