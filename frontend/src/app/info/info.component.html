@@ -1,0 +1,92 @@
+<div class="dx-fieldset">
+    <p [routerLink]="['/maps']">Вернуться на карту</p>
+    <h2>КАРТОЧКА ОБЪЕКТА</h2>
+    <br>
+    <div class="left">
+      <div class="dx-field" *ngIf="value.ContractNumber">
+          <div class="dx-field-label">Номер контракта</div>
+          <div class="dx-field-value">{{ value.ContractNumber }}</div>
+      </div>
+      <div class="dx-field" *ngIf="value.Address">
+          <div class="dx-field-label">Адрес объекта</div>
+          <div class="dx-field-value">{{ value.Address }}</div>
+      </div>
+      <div class="dx-field">
+          <div class="dx-field-label">Вид работ</div>
+          <div class="dx-field-value">{{ 'Ремонт' }}</div>
+      </div>
+      <div class="dx-field" *ngIf="value.ObjectType">
+          <div class="dx-field-label">Тип объекта</div>
+          <div class="dx-field-value">{{ value.ObjectType }}</div>
+      </div>
+      <div class="dx-field" *ngIf="value.StartDate">
+          <div class="dx-field-label">Начало работ</div>
+          <div class="dx-field-value">{{ value.StartDate | amLocale:'ru' | amDateFormat:'LL' }}</div>
+      </div>
+      <div class="dx-field" *ngIf="value.FinishDate">
+          <div class="dx-field-label">Конец работ</div>
+          <div class="dx-field-value">{{ value.FinishDate | amLocale:'ru' | amDateFormat:'LL' }}</div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="dx-field" *ngIf="value.CustomerName">
+          <div class="dx-field-label">Заказчик</div>
+          <div class="dx-field-value">{{ value.CustomerName }}</div>
+      </div>
+      <div class="dx-field" *ngIf="value.CustomerPhone">
+          <div class="dx-field-label">Телефон контактного лица заказчика</div>
+          <div class="dx-field-value">{{ value.CustomerPhone }}</div>
+      </div>
+      <div class="dx-field" *ngIf="value.ContractorName">
+          <div class="dx-field-label">Исполнитель</div>
+          <div class="dx-field-value">{{ value.ContractorName }}</div>
+      </div>
+      <div class="dx-field" *ngIf="value.ContractorPhone">
+          <div class="dx-field-label">Телефон контактного лица исполнителя</div>
+          <div class="dx-field-value">{{ value.ContractorPhone }}</div>
+      </div>
+    </div>
+
+    <br>
+    <h2>ОТЗЫВЫ</h2>
+</div>
+<dx-data-grid
+keyExpr="ID"
+[dataSource]="dataSource"
+[showColumnLines]="true"
+[showRowLines]="true"
+[showBorders]="false"
+[rowAlternationEnabled]="true"
+rowTemplate="rowTemplateName"
+[columnAutoWidth]="true"
+>
+  <dxo-scrolling mode="virtual"></dxo-scrolling>
+  <dxo-load-panel
+    [enabled]="true">
+  </dxo-load-panel>
+
+  <dxi-column dataField="id" caption="ID отзыва" [width]="100" dataType="text"></dxi-column>
+  <dxi-column dataField="userName" caption="Имя пользователья"></dxi-column>
+  <dxi-column dataField="isGoodReview" caption="Тип отзыва" dataType="text"></dxi-column>
+  <dxi-column dataField="phone" caption="Телефон пользователя"></dxi-column>
+
+  <dxo-paging [pageSize]="10"></dxo-paging>
+  <dxo-pager
+      [showPageSizeSelector]="true"
+      [allowedPageSizes]="[10, 25, 50, 100]"
+  ></dxo-pager>
+
+  <tbody class="employee dx-row" *dxTemplate="let employee of 'rowTemplateName'" >
+    <tr class="main-row">
+        <td rowspan="2">{{employee.data.id}}</td>
+        <td><b>{{employee.data.userName}}</b></td>
+        <td *ngIf="employee.data.isGoodReview" class="red">Отрицательный</td>
+        <td *ngIf="!employee.data.isGoodReview" class="green">Положительный</td>
+        <td>{{employee.data.phone}}</td>
+    </tr>
+    <tr class="notes-row">
+        <td colspan="5"><div>{{employee.data.reviewText}}</div></td>
+    </tr>
+  </tbody>
+
+</dx-data-grid>

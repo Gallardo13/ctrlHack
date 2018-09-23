@@ -1,0 +1,85 @@
+.row {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.dx-fieldset {
+  background: white;
+  padding: 15px;
+  margin: 0;
+}
+
+.dx-field {
+  width: 100%;
+}
+
+
+
+::ng-deep .dx-datagrid-rowsview .dx-row {
+  border-bottom: 1px solid #F0F0F0;
+  }
+
+::ng-deep #gridContainer {
+  height: 450px;
+}
+::ng-deep .dx-row img {
+  height: 100px;
+}
+::ng-deep #gridContainer tr.main-row td:not(:first-child) {
+  height: 21px;
+}
+::ng-deep #gridContainer tr.notes-row {
+  white-space: normal;
+  vertical-align: top;
+}
+::ng-deep #gridContainer tr.notes-row td {
+  height: 70px;
+  color: #999;
+}
+::ng-deep .dark #gridContainer tr.notes-row td {
+  color: #777;
+}
+::ng-deep #gridContainer tbody.employee:hover {
+  background-color: #EBEBEB;
+}
+::ng-deep .dark #gridContainer tbody.employee:hover {
+  background-color: #484848;
+}
+::ng-deep #gridContainer tbody.employee:hover tr.main-row td {
+  color: #000;
+}
+::ng-deep .dark #gridContainer tbody.employee:hover tr.main-row td {
+  color: #CCC;
+}
+::ng-deep #gridContainer tbody.employee:hover tr.notes-row td {
+  color: #888;
+}
+
+.main-row td {
+  padding-left: 15px;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.notes-row {
+  font-size: 17px;
+}
+
+.left {
+  display: inline-block;
+  width: 50%;
+  overflow: hidden;
+}
+
+.right {
+  display: inline-block;
+  width: 50%;
+  overflow: hidden;
+}

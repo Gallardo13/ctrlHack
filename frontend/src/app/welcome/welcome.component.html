@@ -1,0 +1,15 @@
+<h1 class="name">Геоинформационная система "???"</h1>
+<div class="welcome-container">
+  <div class="menu-map" [routerLink]="['/maps']">
+  </div>
+  <div class="login">
+    <h2>Авторизация</h2>
+    <dx-form id="form">
+            <dxi-item dataField="Логин" text="Логин"></dxi-item>
+            <dxi-item dataField="Пароль" text="Пароль" [editorOptions]="{ mode: 'password' }"></dxi-item>
+    </dx-form>
+    <br>
+    <dx-button width="90" text="Войти" type="default" (onClick)="onClick($event)"></dx-button>
+
+  </div>
+</div>
