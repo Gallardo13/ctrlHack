@@ -10,3 +10,5 @@
 /GeoPrototypeWebApi/AppTests/obj
 /GeoPrototypeWebApi/LoadContracts/bin
 /GeoPrototypeWebApi/LoadContracts/obj
+/GeoPrototypeWebApi/ImportContractsIntoDb/bin
+/GeoPrototypeWebApi/ImportContractsIntoDb/obj
