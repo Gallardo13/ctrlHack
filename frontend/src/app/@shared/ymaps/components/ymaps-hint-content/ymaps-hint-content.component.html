@@ -1,0 +1,30 @@
+<div *ngIf="value.ContractNumber" class="row">
+  <label>Номер телефона: </label>{{ value.ContractNumber }}
+</div>
+<div *ngIf="value.Address" class="row">
+  <label>Номер телефона: </label>{{ value.Address }}
+</div>
+<div *ngIf="value.ObjectType" class="row">
+  <label>Тип: </label>{{ value.ObjectType }}
+</div>
+<div *ngIf="value.StartDate" class="row">
+  <label>Начало строительства: </label>{{ value.StartDate | amLocale:'ru' | amDateFormat:'LL' }}
+</div>
+<div *ngIf="value.FinishDate" class="row">
+  <label>Конце строительства: </label>{{ value.FinishDate | amLocale:'ru' | amDateFormat:'LL' }}
+</div>
+<div *ngIf="value.CustomerName" class="row">
+  <label>Заказчик: </label>{{ value.CustomerName }}
+</div>
+<div *ngIf="value.CustomerPhone" class="row">
+  <label>Номер заказчика: </label>{{ value.CustomerPhone }}
+</div>
+<div *ngIf="value.ContractorName" class="row">
+  <label>Исполнитель: </label>{{ value.ContractorName }}
+</div>
+<div *ngIf="value.ContractorPhone" class="row">
+  <label>Номер исполнителя: </label>{{ value.ContractorPhone }}
+</div>
+<div *ngIf="value.Url" class="row">
+  <a href="{{ value.Url }}">Подробнее</a>
+</div>

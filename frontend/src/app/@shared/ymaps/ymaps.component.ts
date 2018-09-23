@@ -1,7 +1,11 @@
-import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewChild, Injector, ElementRef,
+  ComponentRef, OnDestroy, ComponentFactoryResolver, ViewContainerRef
+} from '@angular/core';
+
 import { YmapsService } from './ymaps.service';
 import { Subject } from 'rxjs';
 import { YmapsMarkerInput, YmapsMarker } from './ymaps.model';
+import { YmapsHintContentComponent } from './components/ymaps-hint-content/ymaps-hint-content.component';
 
 declare var ymaps: any;
 
@@ -14,14 +18,18 @@ export class YmapsComponent implements OnInit, OnDestroy {
   private _map: Promise<ymaps.Map>;
   private _mapResolver: (value?: ymaps.Map) => void;
   private _marks: ymaps.Placemark[] = [];
+  private componentRef: ComponentRef<any>;
 
   public map: ymaps.Map;
   public onInitMap: Subject<YmapsComponent> = new Subject<YmapsComponent>();
 
   @ViewChild('mapContainer') mapContainer: ElementRef;
+  @ViewChild('contentContainer', {read: ViewContainerRef}) contentContainer: ViewContainerRef;
 
   constructor(
-    private _service: YmapsService
+    private _componentFactoryResolver: ComponentFactoryResolver,
+    private _service: YmapsService,
+    private injector: Injector,
   ) {
     this._map = new Promise<ymaps.Map>((resolve: () => void) => {
       this._mapResolver = resolve;
@@ -81,14 +89,25 @@ export class YmapsComponent implements OnInit, OnDestroy {
     let objects = [];
 
     this._service.setMarkers(markers.map((marker) => {
+      let data = marker.data;
+      const componentFactory = this._componentFactoryResolver.resolveComponentFactory(YmapsHintContentComponent);
+      this.componentRef = this.contentContainer.createComponent(componentFactory);
+      data.FinishDate = new Date(data.FinishDate);
+      data.StartDate = new Date(data.StartDate);
+      this.componentRef.instance.value = data;
+      this.componentRef.changeDetectorRef.detectChanges()
+
+      let div = document.createElement('div');
+      div.appendChild(this.componentRef.location.nativeElement);
+
       let placemark = new ymaps.GeoObject({
         geometry: {
           type: 'Point',
           coordinates: marker.coordinates
         },
         properties: {
-          clusterCaption: 'Адрес',
-          balloonContentBody: 'Контент'
+          clusterCaption: '<b>' + data.ObjectType + '</b><br />' + data.Address,
+          balloonContentBody: div.innerHTML
         }
       });
 
@@ -109,7 +128,7 @@ export class YmapsComponent implements OnInit, OnDestroy {
     );
 
     cluster.events.add("balloonopen", (e) => {
-      console.log(e);
+
     });
 
     cluster.add(objects);

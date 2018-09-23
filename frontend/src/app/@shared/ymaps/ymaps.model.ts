@@ -6,6 +6,22 @@ export type YmapsMarker = {
 
 export type YmapsMarkerInput = {
   coordinates: number[],
-  data: any,
+  data: YmapsMarkerData,
   id: string
+}
+
+export type YmapsMarkerData = {
+  ContractNumber?: string,
+  Address?: string,
+  TempAddress?: string,
+  ObjectType?: string,
+  TempObjectType?: string,
+  WorkType?: string,
+  StartDate?: string | Date,
+  FinishDate?: string | Date,
+  CustomerName?: string,
+  CustomerPhone?: string,
+  ContractorName?: string,
+  ContractorPhone?: string,
+  Url?: string
 }

@@ -2,24 +2,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MapModule } from './maps/maps.module';
 
-import { DxSelectBoxModule, DxCheckBoxModule } from 'devextreme-angular';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { YmapsModule } from '@shared/ymaps/ymaps.module';
 import { AppService } from './app.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     CommonModule,
-    YmapsModule,
-    DxSelectBoxModule,
-    DxCheckBoxModule,
-    HttpClientModule
+    MapModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [
     AppService,

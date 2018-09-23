@@ -1,0 +1,21 @@
+<div class="button-options" (click)="openMenu($event)"></div>
+<div class="options-container" #container>
+  <p>Параметры</p>
+  <dx-select-box
+    [dataSource]="['2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010']"
+    [(value)]="year"
+    (onValueChanged)="onChangeSelect($event)"
+    placeholder="Выберете год...">
+  </dx-select-box>
+  <br>
+  <div class="option" *ngFor="let option of keys">
+      <dx-check-box
+        [text]="option"
+        (onValueChanged)="onChangeCheckbox($event)"
+        [(value)]="types[option]">
+      </dx-check-box>
+  </div>
+</div>
+<div class="map-container">
+  <app-ymaps #map></app-ymaps>
+</div>
