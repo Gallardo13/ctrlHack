@@ -65,6 +65,8 @@ namespace GeoPrototypeWebApi.Facades
                 cmd.AddParameter("@InfrastructureObjectId", infrastructureObjectReview.InfrastructureObjectId);
                 cmd.AddParameter("@UserName", infrastructureObjectReview.UserName);
                 cmd.AddParameter("@ReviewText", infrastructureObjectReview.ReviewText);
+                cmd.AddParameter("@Phone", infrastructureObjectReview.Phone);
+                cmd.AddParameter("@Type", infrastructureObjectReview.IsGoodReview);
 
                 return (long)(ulong)cmd.ExecuteScalar();
             }

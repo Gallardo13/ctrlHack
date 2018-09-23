@@ -39,7 +39,7 @@ namespace GeoPrototypeWebApi.Facades
             FROM contracts
             WHERE(`id` = @id)";
 
-        public string InsertReview => "insert into reviews (contract_id, name, comment) values (@InfrastructureObjectId, @UserName, @ReviewText); select last_insert_id();";
+        public string InsertReview => "insert into reviews (contract_id, name, comment, phone, type) values (@InfrastructureObjectId, @UserName, @ReviewText, @Phone, @Type); select last_insert_id();";
 
         public string InsertReviewImage => "insert into images2reviews (review_id, image_type, image, preview_type, preview) values (@ReviewId, @ImageMimeType, @Image, @ThumbnailMimeType, @ThumbnailImage)";
 
