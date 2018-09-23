@@ -72,7 +72,9 @@ namespace GeoPrototypeWebApi.Facades
         public void InsertImage(long reviewId, ReviewImage reviewImage)
         {
             Image thumbnailImage = null;
-            using (var ms = new MemoryStream(reviewImage.Image))
+
+            var imageBytes = Convert.FromBase64String(reviewImage.Image);
+            using (var ms = new MemoryStream(imageBytes))
                 thumbnailImage = Image.FromStream(ms).GetThumbnailImage(200, 200, null, new IntPtr(0));
 
             byte[] thumbnailImageArray = null;
@@ -92,7 +94,7 @@ namespace GeoPrototypeWebApi.Facades
                 cmd.CommandText = SqlStrings.InsertReviewImage;
                 cmd.AddParameter("@ReviewId", reviewId);
                 cmd.AddParameter("@ImageMimeType", reviewImage.MimeType);
-                cmd.AddParameter("@Image", reviewImage.Image);
+                cmd.AddParameter("@Image", imageBytes);
                 cmd.AddParameter("@ThumbnailMimeType", reviewImage.MimeType);
                 cmd.AddParameter("@ThumbnailImage", thumbnailImage);
 
