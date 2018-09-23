@@ -1,6 +1,7 @@
 ﻿using GeoPrototypeWebApi.Controllers;
 using System.Collections.Generic;
 
+
 namespace GeoPrototypeWebApi.Facades
 {
     public class InfrastructureObjectReviewsFacade : DbBaseFacade
@@ -22,7 +23,9 @@ namespace GeoPrototypeWebApi.Facades
                     Id = (long)dataReader["id"],
                     InfrastructureObjectId = (long)dataReader["contract_id"],
                     UserName = dataReader.GetNullableString("name"),
-                    ReviewText = dataReader.GetNullableString("comment")
+                    ReviewText = dataReader.GetNullableString("comment"),
+                    Phone = dataReader.GetNullableString("phone"),
+                    IsGoodReview = (bool)dataReader["type"]
                 };
             }
         }
@@ -44,7 +47,9 @@ namespace GeoPrototypeWebApi.Facades
                         Id = (long)dataReader["id"],
                         InfrastructureObjectId = (long)dataReader["contract_id"],
                         UserName = dataReader.GetNullableString("name"),
-                        ReviewText = dataReader.GetNullableString("comment")
+                        ReviewText = dataReader.GetNullableString("comment"),
+                        Phone = dataReader.GetNullableString("phone"),
+                        IsGoodReview = (bool)dataReader["type"]
                     });
 
                 return retVal;
