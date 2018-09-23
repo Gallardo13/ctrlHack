@@ -26,7 +26,7 @@ namespace GeoPrototypeWebApi.Facades
                     Id = (long)dataReader["id"],
                     ReviewId = (long)dataReader["review_id"],
                     MimeType = (string)dataReader[preview ? "preview_type" : "image_type"],
-                    Image = (byte[])dataReader[preview ? "preview" : "image"]
+                    Image = Convert.ToBase64String((byte[])dataReader[preview ? "preview" : "image"])
                 };
             }
         }
@@ -49,7 +49,7 @@ namespace GeoPrototypeWebApi.Facades
                         Id = (long)dataReader["id"],
                         ReviewId = (long)dataReader["review_id"],
                         MimeType = (string)dataReader[preview ? "preview_type" : "image_type"],
-                        Image = (byte[])dataReader[preview ? "preview" : "image"]
+                        Image = Convert.ToBase64String((byte[])dataReader[preview ? "preview" : "image"])
                     });
 
                 return retVal;
