@@ -95,19 +95,26 @@ export class YmapsComponent implements OnInit, OnDestroy {
       data.FinishDate = new Date(data.FinishDate);
       data.StartDate = new Date(data.StartDate);
       this.componentRef.instance.value = data;
+      this.componentRef.instance.Id = marker.id;
       this.componentRef.changeDetectorRef.detectChanges()
 
       let div = document.createElement('div');
       div.appendChild(this.componentRef.location.nativeElement);
-
+      let color = 'twirl#blueIcon';
+      if (data.isObjectHaveBadReviews) {
+        color = 'twirl#redIcon';
+      }
       let placemark = new ymaps.GeoObject({
         geometry: {
           type: 'Point',
-          coordinates: marker.coordinates
+          coordinates: marker.coordinates,
         },
         properties: {
           clusterCaption: '<b>' + data.ObjectType + '</b><br />' + data.Address,
-          balloonContentBody: div.innerHTML
+          balloonContentBody: div.innerHTML,
+        },
+        options: {
+          fillColor: "#ff0000"
         }
       });
 

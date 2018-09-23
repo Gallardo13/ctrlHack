@@ -1,30 +1,33 @@
 <div *ngIf="value.ContractNumber" class="row">
-  <label>Номер телефона: </label>{{ value.ContractNumber }}
+  <label>Номер контракта: </label>{{ value.ContractNumber }}
 </div>
 <div *ngIf="value.Address" class="row">
-  <label>Номер телефона: </label>{{ value.Address }}
+  <label>Адрес объекта строительста: </label>{{ value.Address }}
 </div>
 <div *ngIf="value.ObjectType" class="row">
-  <label>Тип: </label>{{ value.ObjectType }}
+  <label>Тип строительного объекта: </label>{{ value.ObjectType }}
 </div>
 <div *ngIf="value.StartDate" class="row">
   <label>Начало строительства: </label>{{ value.StartDate | amLocale:'ru' | amDateFormat:'LL' }}
 </div>
 <div *ngIf="value.FinishDate" class="row">
-  <label>Конце строительства: </label>{{ value.FinishDate | amLocale:'ru' | amDateFormat:'LL' }}
+  <label>Конец строительства: </label>{{ value.FinishDate | amLocale:'ru' | amDateFormat:'LL' }}
 </div>
 <div *ngIf="value.CustomerName" class="row">
   <label>Заказчик: </label>{{ value.CustomerName }}
 </div>
 <div *ngIf="value.CustomerPhone" class="row">
-  <label>Номер заказчика: </label>{{ value.CustomerPhone }}
+  <label>Телефон контактного лица заказчика: </label>{{ value.CustomerPhone }}
 </div>
 <div *ngIf="value.ContractorName" class="row">
   <label>Исполнитель: </label>{{ value.ContractorName }}
 </div>
 <div *ngIf="value.ContractorPhone" class="row">
-  <label>Номер исполнителя: </label>{{ value.ContractorPhone }}
+  <label>Телефон контактного лица исполнителя: </label>{{ value.ContractorPhone }}
 </div>
 <div *ngIf="value.Url" class="row">
-  <a href="{{ value.Url }}">Подробнее</a>
+  <a href="{{ value.Url }}">Сведения о контракте</a>
+</div>
+<div *ngIf="Id" class="row">
+  <a [routerLink]="['/info',{id: Id}]">Отзывы</a>
 </div>

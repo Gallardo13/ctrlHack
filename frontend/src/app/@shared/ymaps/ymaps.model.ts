@@ -23,5 +23,6 @@ export type YmapsMarkerData = {
   CustomerPhone?: string,
   ContractorName?: string,
   ContractorPhone?: string,
-  Url?: string
+  Url?: string,
+  isObjectHaveBadReviews?: string
 }

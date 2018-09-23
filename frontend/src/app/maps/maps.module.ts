@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
-import { DxSelectBoxModule, DxCheckBoxModule } from 'devextreme-angular';
+import { DxSelectBoxModule, DxCheckBoxModule, DxDataGridModule,
+  DxBulletModule,
+  DxTemplateModule,} from 'devextreme-angular';
 
 import { MapComponent } from './maps.component';
 import { MapService } from './maps.service';
@@ -17,7 +19,10 @@ import { MapRoutingModule } from './maps-routing.module';
     DxCheckBoxModule,
     HttpClientModule,
     YmapsModule,
-    MapRoutingModule
+    MapRoutingModule,
+    DxDataGridModule,
+    DxBulletModule,
+    DxTemplateModule,
   ],
   declarations: [MapComponent],
   providers: [
